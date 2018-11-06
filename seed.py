@@ -1,9 +1,12 @@
+from sqlalchemy import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from models import Artist, Genre, Song, engine
 
 Base = declarative_base()
+
+engine = create_engine('sqlite:///music.db')
 
 session = sessionmaker()
 session.configure(bind=engine)
